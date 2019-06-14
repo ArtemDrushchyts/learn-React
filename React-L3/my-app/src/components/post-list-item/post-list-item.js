@@ -6,10 +6,12 @@ export default class PostListItem extends Component {
         super(props);
         this.state = {
             important: false,
-            like: false
+            like: false,
+            edit: false
         }
         this.onImportant = this.onImportant.bind(this);
         this.onLike = this.onLike.bind(this);
+        this.onEdit = this.onEdit.bind(this);
     }
 
     onImportant() {
@@ -21,6 +23,12 @@ export default class PostListItem extends Component {
     onLike() {
         this.setState(({ like }) => ({
             like: !like
+        }))
+    }
+
+    onEdit() {
+        this.setState(({ edit }) => ({
+            edit: !edit
         }))
     }
 
@@ -36,6 +44,7 @@ export default class PostListItem extends Component {
         if (like) {
             classNames += ' like';
         }
+        
 
         return (
             <div className={classNames}>
@@ -45,6 +54,10 @@ export default class PostListItem extends Component {
                     {label}
                 </span>
                 <div className="d-flex justify-content-center align-tems-center">
+                    <button type="button" className="btn-sm"
+                        onClick={this.onEdit}>
+                        <i className="fa fa-edit"></i>
+                    </button>
                     <button type="button" className="btn-star btn-sm"
                         onClick={this.onImportant}>
                         <i className="fa fa-star"></i>
