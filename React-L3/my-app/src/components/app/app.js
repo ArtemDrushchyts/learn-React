@@ -11,9 +11,9 @@ const App = () => {
 
   const data = [
     5,
-    { label: 'Going to learn React', important: true },
-    { label: 'That is so good', important: false },
-    { label: 'I need a break', important: false }
+    { label: 'Going to learn React', important: true, id: 'sdad' },
+    { label: 'That is so good', important: false, id: 'sdqwe' },
+    { label: 'I need a break', important: false, id: 'aqwe' }
   ]
   return (
     <div className="app">
@@ -22,7 +22,9 @@ const App = () => {
         <SearchPanel />
         <PostStatusFilter />
       </div>
-      <PostList posts={data} />
+      <PostList
+        posts={data}
+        onDelete={id => console.log(id)} />
       <PostAddForm />
     </div>
   )
