@@ -13,7 +13,7 @@ const PostList = ({ posts }) => {
                 <li key={id} className='list-group-item'>
                     <PostListItem
                         {...itemProps}
-                        onDelete={() => console.log('deleted')}
+                        onDelete={() => onDelete(id)}
                     // label={item.label}
                     // important={item.important}
                     />
@@ -21,7 +21,8 @@ const PostList = ({ posts }) => {
 
             )
         }
-    })
+    });
+
     return (
         <ul className="app-list list-group">
             {elements}
